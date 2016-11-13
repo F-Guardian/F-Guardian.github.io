@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Jekyll-Uno</title>
-    <description>Jekyll-Uno - a minimal, responsive theme for Jekyll</description>
+    <title>Guardian&#39;s Blog</title>
+    <description>There are many things that need to be done step by step</description>
     <link>http://joshgerdes.com/jekyll-uno//</link>
     <atom:link href="http://joshgerdes.com/jekyll-uno//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 13 Nov 2016 23:22:20 +0800</pubDate>
-    <lastBuildDate>Sun, 13 Nov 2016 23:22:20 +0800</lastBuildDate>
+    <pubDate>Sun, 13 Nov 2016 23:46:59 +0800</pubDate>
+    <lastBuildDate>Sun, 13 Nov 2016 23:46:59 +0800</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
