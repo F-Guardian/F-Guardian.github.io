@@ -4,7 +4,8 @@ description: 'There are many things that need to be done step by step'
 url: 'http://joshgerdes.com/jekyll-uno'
 baseurl: '/'
 google_analytics: 'UA-87437901-1'
-disqus_shortname: 'guardian-blog'
+#disqus_shortname: 'guardian-blog'
+duoshuo_shortname: 'guardian'
 
 author:
   name: 'F-Guardian'
