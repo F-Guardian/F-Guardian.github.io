@@ -1111,7 +1111,8 @@ pre {
 	padding: 2em 0 0 0;
 	border-top: 2px solid #dddddd;
 	font-size: .7em;
-	color: #b3b3b3; }
+	color: #b3b3b3;
+	font-family: sans-serif;}
 
 .footer__copyright {
 	display: block;
@@ -1145,7 +1146,8 @@ hr {
 
 .post-meta {
 	margin: 0 0 .4em 0;
-	color: #c7c7c7; }
+	color: #c7c7c7; 
+	font-family: sans-serif;}
 
 .post-meta__date {
 	margin-right: .5em; }
@@ -1449,7 +1451,8 @@ i {
 	display: block;
 	margin: .7em 0 0 0;
 	font-size: .9em;
-	color: #c7c7c7; }
+	color: #c7c7c7; 
+	font-family: sans-serif;}
 
 .post-list__meta--date {
 	margin-right: .5em;
