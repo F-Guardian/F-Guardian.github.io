@@ -1454,6 +1454,10 @@ i {
 	display: block;
 	position: relative; }
 
+.post-title {
+   font-weight: inherit;
+   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;}
+
 .post-list {
 	margin: 0;
 	padding: 0;
@@ -1468,6 +1472,8 @@ i {
 	margin-top: 0;
 	margin-bottom: .2em;
 	font-size: 1.5em;
+	font-weight: inherit;
+	font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
 	line-height: 1.3em; }
 	.post-list__post-title a {
 		color: #333333; }
