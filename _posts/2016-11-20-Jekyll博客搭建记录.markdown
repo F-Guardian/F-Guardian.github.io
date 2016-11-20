@@ -36,19 +36,7 @@ tags: [Jekyll,网站搭建]
 ### 2.3.1 百度统计添加
 首先去[百度统计]注册一个网站信息拿到一个标识码，然后在你需要添加的地方（博主按照主题里面google分析的代码位置加在了`footer.html`里）加上下面这段js代码：
 
-``` javascript
-{% if site.baidu-analyisis %}
-<script>
-var _hmt = _hmt || [];
-(function() {
-    var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?{{ site.baidu-analyisis }}";
-      var s = document.getElementsByTagName("script")[0]; 
-        s.parentNode.insertBefore(hm, s);
-})();
-</script>
-{% endif %}
-```
+![2016-11-20-img01](/images/posts/2016-11-20-img01.png)
 
 最后在`_config.yml`文件中加上baidu-analyisis: xxxxxx即可（xxxxxx为在百度统计注册百度给你上面那段js代码?后的那段标识码）。
 
@@ -57,28 +45,11 @@ var _hmt = _hmt || [];
 ### 2.3.2 多说评论框添加
 前面说到了，由于`Disqus`国内加载不了，所以博主忍痛割爱选择了`多说`。首先去[多说官网]注册一个账号，在`_include`文件夹中创建一个`duoshuo.html`，然后写入如下代码：
 
-``` javascript
-{% if site.duoshuo_shortname %}
-<!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="{{ page.id }}" data-title="{{ page.title }}" data-url="{{ site.url }}{{ page.url }}"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"{{ site.duoshuo_shortname }}"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-{% endif %}
-```
+![2016-11-20-img02](/images/posts/2016-11-20-img02.png)
 
-在`_layouts`文件夹中的`post.html`最后加上{ % if page.comments != false % }{ % include duoshuo.html % }{ % endif % }就行了（这里自行去除大括号和%之间的空格，因为Jekyll会执行这段代码←_←）。
+在`_layouts`文件夹中的`post.html`最后加上下面这段代码就行了。
+
+![2016-11-20-img03](/images/posts/2016-11-20-img03.png)
 
 [多说官网]: http://duoshuo.com/
 
