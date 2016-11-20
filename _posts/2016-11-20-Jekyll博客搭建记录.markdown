@@ -1,0 +1,117 @@
+---
+title:  "Jekyll博客搭建记录"
+date:   2016-11-20 10:25:04
+categories: [网站搭建]
+tags: [Jekyll,网站搭建]
+---
+
+### 1. Why Jekyll？
+以前一直在`CSDN`上写[博客]，自从后来实习后就弃置了好长一段时间，最近突然又想继续写博客了，而且之前一直有自己搭一个博客的想法，现在终于决定实践一下，本来是准备用大名鼎鼎的`WordPress`的，后来在网上先搜寻了一番然后发现了`Jekyll`这个好东西，[Jekyll官网传送门]，优点在于轻量简单，而且不用自己买虚拟服务器，缺点嘛，应该就是需要一点前端知识吧。
+
+直接使用模板倒还OK，想做一些个性化的定制对于我这种对前端知识相当有限而且还想做点个性化的人来说还是有点挑战的，于是折腾了好几天终于感觉能放出来看看了，所以第一版就先做到现在这样吧，以后有时间再来加工一下吧（其实是因为自己前端水平实在有限，这里允许我做一个悲伤的表情TAT）。这里还有个对比博客系统的一个[链接]大家可以按自己的喜好参考一下再选择。
+
+[博客]: http://blog.csdn.net/fyfmfof
+[链接]: http://www.creativebloq.com/web-design/best-blogging-platforms-121413634
+[Jekyll官网传送门]: https://jekyllrb.com/
+<br/>
+
+### 2. 搭建过程
+这里我对`Jekyll`的语法以及一些命令操作就不做介绍了，这个官网就介绍的很好了，而且在网上有很多写的很详细很好的博客，比如[使用jekyll和hexo搭建免费博客]，这里搭建过程主要记录一下我的搭建过程和搭建过程中遇到的一些坑。
+
+[使用jekyll和hexo搭建免费博客]: http://www.alonemonkey.com/2016/05/20/blog-by-jekyll-hexo/
+
+### 2.1 模板选择
+因为`Jekyll`直接创建的初始模板太过简单，想要酷炫一点的模板又没有强大的前端技术怎么办呢？没关系，博主也一样，大家可以再[Jekyll Themes]上找一个自己喜欢的模板然后fork过来然后按照自己的需求修改即可，博主选的主题是[jekyll-uno]，这里对主题作者表示感谢~
+
+[Jekyll Themes]: http://jekyllthemes.org/
+[jekyll-uno]: https://github.com/joshgerdes/jekyll-uno
+
+### 2.2 个性化定制
+模板选好后就可以按照自己的喜好来修改模板了，这个对于会前端技术的大大们应该是相当简单的，因为`Jekyll`本身的语法并不复杂，而且使用的是其他成型的模板的话基本上不再需要修改`Jekyll`的语法了，只需要按照自己的喜好来修改一些样式方面的东西就好了，这个由于个人喜好不一样还有博主本身对前端样式什么的也不熟悉，这里就不列举修改样式的细节了。因为博主选择的模板是国外的大大制作的，所以这里主要说一下关于由于`伟大之墙`造成影响而需要解决的一些问题。
+
+### 2.3 插件添加
+这里需要添加的主要就是2个插件，一个统计，一个评论，由于是静态页面没有数据库的缘故，所以统计和评论都必须依赖第三方的支持。本来博主选择的这个模板中作者已经对评论和统计插件做了支持，但是前面也说过了，由于`伟大之墙`的缘故，著名的`Disqus`评论插件完全无法使用，google的`Google Analytics`现在虽然能用，但是哪一天突然不能用了这也完全说不准。所以
+博主暂且保留了Google Analytics同时也加上了百度的`百度统计`，然后添加了国内使用较多的`多说`作为评论插件，这里缅怀一个下Disqus，因为Disqus的默认主题就很好看，虽然多说能自定义样式，但是个人还是更喜欢Disqus。
+
+### 2.3.1 百度统计添加
+首先去[百度统计]注册一个网站信息拿到一个标识码，然后在你需要添加的地方（博主按照主题里面google分析的代码位置加在了`footer.html`里）加上下面这段js代码：
+
+``` javascript
+{% if site.baidu-analyisis %}
+<script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?{{ site.baidu-analyisis }}";
+      var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+})();
+</script>
+{% endif %}
+```
+
+最后在`_config.yml`文件中加上baidu-analyisis: xxxxxx即可（xxxxxx为在百度统计注册百度给你上面那段js代码?后的那段标识码）。
+
+[百度统计]: http://tongji.baidu.com/web/welcome/login
+
+### 2.3.2 多说评论框添加
+前面说到了，由于`Disqus`国内加载不了，所以博主忍痛割爱选择了`多说`。首先去[多说官网]注册一个账号，在`_include`文件夹中创建一个`duoshuo.html`，然后写入如下代码：
+
+``` javascript
+{% if site.duoshuo_shortname %}
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="{{ page.id }}" data-title="{{ page.title }}" data-url="{{ site.url }}{{ page.url }}"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"{{ site.duoshuo_shortname }}"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+{% endif %}
+```
+
+在`_layouts`文件夹中的`post.html`最后加上{ % if page.comments != false % }{ % include duoshuo.html % }{ % endif % }就行了（这里自行去除大括号和%之间的空格，因为Jekyll会执行这段代码←_←）。
+
+[多说官网]: http://duoshuo.com/
+
+### 2.4 资源本地化
+还是由于博主使用模板的原因，所以原作者有一些资源是访问google的url获取的，所以国内非翻墙用户可能加载很慢，或者根本就加载不了，所以为了解决这个问题建议大家如果使用其他模板有遇到这种类似情况的时候，可以用chrome浏览器的开发者工具功能打开`Sources`看一下有哪些资源是来自于google或者类似的国内可能被墙的url，然后找到访问这些url的代码所在，将资源放到本地的某个文件夹下，然后将访问url修改为访问本地就OK了，这里强烈建议把能本地化的资源统统本地化，谁知到哪天就被墙了呢（手动滑稽）。
+
+博主这里把模板中的`jquery.min.js`和css中用到的一些字体样式做了本地化，关于字体样式的本地化大家可以参考一下这篇文章——[关于谷歌字体库减缓网站速度应对方法]。
+
+[关于谷歌字体库减缓网站速度应对方法]: http://www.itbulu.com/fonts-googleapis.html
+<br/>
+
+### 3. 代码部署
+如果一切样式插件配置都搞定后就可以把代码部署到网上了，这里普遍的就是`Github`和`Coding`，Github大家都很熟悉了，Coding是国内的类似网站，两者都提供了`Pages`服务并对`Jeykll`做了相应的支持，所以大家按照两者的说明自行将代码push上去就可以使用给定的域名地址进行访问了。还是由于`伟大之墙`的原因，国内对Github的访问确实还是有点慢，大家可以按照自己的需求选择。
+
+<br/>
+
+### 4. 域名绑定
+为了把博客建立的更高端一点，博主去买了个域名，并在Coding和Github上都部署了代码，然后用DNSPod的服务将国内的用户导向Coding，将国外的用户导向Github，具体步骤大家可以参考下[同时托管博客到github和coding]。
+
+[同时托管博客到github和coding]: http://www.jianshu.com/p/7103fbbe1eba
+<br/>
+
+### 5. 总结
+总的来说博客的一期搭建工作就到这里了，之后有时间再继续完善，毕竟前端是硬伤∑(っ °Д °;)っ，花这么大工夫搭建一个博客也是为了激励一下自己保持一下写博客这个良好的习惯，这几天css简直调疯我，也算是顺势了解了一下前端技术吧。
+<br/>
+<br/>
+<br/>
+<br/>
+<br/> 
+
+#### 其他参考资料
+
+[采用Jekyll + github + pygments构建个人博客的最终说明](http://www.jianshu.com/p/609e1197754c)  
+[OS X 下使用 Jekyll 和 Coding Pages 搭建静态博客](http://www.jianshu.com/p/c8a4da59e4da)  
+[多说头像CSS样式自定义-让评论更炫酷](http://www.xuanfengge.com/duoshuo.html)  
+[多说css美化——心得](http://www.isiyuan.net/duoshuo-css.html)  

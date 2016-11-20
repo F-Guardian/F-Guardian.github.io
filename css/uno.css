@@ -1049,7 +1049,7 @@ code {
 	background: #e8f2fb;
 	border: 1px solid #c9e1f6;
 	border-radius: 3px;
-	font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+/*	font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;*/
 	font-size: .85em; }
 
 pre {
@@ -1456,7 +1456,8 @@ i {
 
 .post-title {
    font-weight: inherit;
-   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;}
+   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+   padding-bottom: 20px;}
 
 .post-list {
 	margin: 0;
