@@ -980,8 +980,8 @@ h5,
 h5 {
 	margin-top: .8em;
 	margin-bottom: .4em;
-	font-family: "Roboto Slab";
-	font-weight: lighter;
+/*	font-family: "Roboto Slab";
+	font-weight: lighter;*/
 	color: #333333;
 	-webkit-font-smoothing: antialiased; }
 
@@ -1222,7 +1222,9 @@ hr {
 	margin: 0 0 5px 0;
 	font-size: 2.5em;
 	letter-spacing: 4px;
-	color: #FFF; }
+	color: #FFF; 
+    font-family: "Roboto Slab";
+	font-weight: lighter;}
 
 .panel-subtitle {
 	font-family: "Roboto Slab", serif;
