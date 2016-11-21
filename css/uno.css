@@ -1102,7 +1102,7 @@ pre {
 .content-wrapper {
 	z-index: 800;
 	width: 60%;
-	max-width: 800px;
+/*	max-width: 800px;*/
 	margin-left: 40%; }
 
 .content-wrapper__inner {
@@ -1240,6 +1240,8 @@ hr {
 	margin-bottom: .2em; }
 
 .panel-cover__description {
+	font-family: "Roboto Slab";
+	font-weight: lighter;
 	margin: 0 30px; }
 
 .panel-cover__divider {
