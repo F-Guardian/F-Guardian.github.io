@@ -1480,6 +1480,16 @@ i {
 	margin: 2.2em 0 2.1em 0;
 	border-top: 1px solid #dddddd; }
 
+.post-list .excerpt {
+	border-radius: 5px;
+	color: #5d5d5d;
+	background: #ececec;
+	padding: 3px 10px;}
+
+article {
+	color: #5d5d5d;
+}
+
 *:focus {
 	outline: none; }
 
