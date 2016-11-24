@@ -1,7 +1,7 @@
 # Site settings
 title: Guardian's Blog
 description: 'There are many things that need to be done step by step'
-url: 'http://joshgerdes.com/jekyll-uno'
+url: 'http://www.guardian.cool'
 baseurl: '/'
 google_analytics: 'UA-87437901-1'
 baidu-analyisis: 284ed0f8baccf88d6a37e9fcb8dca825 
@@ -27,7 +27,7 @@ defaults:
 # Build settings
 destination: _site
 paginate: 10
-permalink: /:year/:title/
+permalink: /:year/:month/:title/
 markdown: kramdown
 highlighter: rouge
 
