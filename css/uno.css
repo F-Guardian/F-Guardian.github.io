@@ -1437,7 +1437,8 @@ i {
 .post-title {
    font-weight: inherit;
    font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
-   padding-bottom: 20px;}
+   padding-bottom: 20px;
+   font-size: 2.5em;}
 
 .post-list {
 	margin: 0;
