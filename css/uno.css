@@ -1500,6 +1500,9 @@ div.highlighter-rouge {
 	background-color: #272822;
 	border-radius: 5px;}
 
+::-webkit-scrollbar {
+	width:0px;}
+
 *:focus {
 	outline: none; }
 
