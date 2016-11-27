@@ -111,6 +111,7 @@ fi
 
 ## 连接不上Resourcemanager
 如果`kylin.log`中报如下错误则说明连接不上集群的Resourcemanager
+
 >yarn.resourcemanager.webapp.address:http://0.0.0.0:8088 and java.net.ConnectException: Connection refused
 
 解决方案为在`kylin.properties`中添加如下内容
