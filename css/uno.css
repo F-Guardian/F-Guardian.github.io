@@ -1494,6 +1494,11 @@ article {
 pre.highlight code {
 	color: #ffffff;}
 
+div.highlighter-rouge {
+    overflow: auto;
+	background-color: #272822;
+	border-radius: 5px;}
+
 *:focus {
 	outline: none; }
 
