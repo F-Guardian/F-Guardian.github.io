@@ -1497,7 +1497,8 @@ pre.highlight code {
 div.highlighter-rouge {
     overflow: auto;
 	background-color: #272822;
-	border-radius: 5px;}
+	border-radius: 5px;
+	width: 100%;}
 
 *:focus {
 	outline: none; }
