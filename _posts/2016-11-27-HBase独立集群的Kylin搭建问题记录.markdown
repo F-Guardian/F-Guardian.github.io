@@ -129,11 +129,29 @@ kylin.job.yarn.app.rest.check.status.url=http://YOUR_RM_NODE:8088/ws/v1/cluster/
 ## 6. HBase命名空间问题
 目前Kylin还不支持配置HBase的命名空间，所以默认在HBase
 中的default下创建表，这个问题目前只能等Kylin更新或者手动修改源码重新编译来解决。顺带一提，`kylin.metadata.url`是支持命名空间的，可以设置为带命名空间的地址。
+
+<br/>
+
+## 7.补充(2017-01-04)
+之前配置好后建立cube没有问题，但是查询报找不到方法的错误如下：
+
+```
+Caused by: java.lang.NoSuchMethodError: 
+org.apache.hadoop.hbase.coprocessor.RegionCoprocessorEnvironment.getRegion()Lorg/apache/hadoop/hbase/regionserver/Region;
+```
+
+解决方案如下：
+重新编译HBase1.0.1.1版本的Kylin部署后再执行下面的脚本即可，[相关链接][url3]，可以自行编译或者在链接的相关回答中找到有已编译好的1.5.3版本的Kylin下载链接直接下载使用。
+
+```bash
+$KYLIN_HOME/bin/kylin.sh org.apache.kylin.storage.hbase.util.DeployCoprocessorCLI $KYLIN_HOME/lib/kylin-coprocessor-*.jar all
+```
 <br/>
 <br/>
 <br/>
 <br/>
 <br/>
+
 
 #### 其他参考资料
 
@@ -143,3 +161,4 @@ kylin.job.yarn.app.rest.check.status.url=http://YOUR_RM_NODE:8088/ws/v1/cluster/
 
 [url1]:http://kylin.apache.org/
 [url2]:http://kylin.apache.org/blog/2016/06/10/standalone-hbase-cluster/
+[url3]:http://apache-kylin.74782.x6.nabble.com/cube-query-problem-with-kylin-1-5-3-td5484.html#a5546
